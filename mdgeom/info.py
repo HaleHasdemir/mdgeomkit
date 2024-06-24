@@ -7,7 +7,7 @@ This module contains ...
 """
 
 def summary(*universe):
-    pass
+    "hello world"
 
 
 def extract(*universe):
