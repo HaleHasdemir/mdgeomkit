@@ -10,6 +10,28 @@ from mdgeom import info
 
 ### simple testing
 
+@pytest.fixture(scope="module")
+def u_gmx():
+    reference = {
+        "n_atoms": 47681,
+        "Lx": 80.017006,
+        "Ly": 80.017006,
+        "Lz": 80.017006,
+        "alpha": 60.0,
+        "beta": 60.0,
+        "gamma": 90.0,
+        "n_frames": 10,
+        "totaltime": 900.0000686645508,
+        "dt": 100.00000762939453,
+    }
+    return mda.Universe(data.TPR, data.XTC), reference
+
+def text_extract_fixture():
+    universe, reference = u_gmx
+    udata = info.extract(universe)
+
+    for key in reference:
+        assert udata[key] == pytest.approx(reference[key])
 
 def test_extract_ugmx():
     """Test extract() function for the universe with the standard
