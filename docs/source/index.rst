@@ -11,6 +11,7 @@ Welcome to mdgeomkit's documentation!
    :caption: Contents:
 
    getting_started
+   tutorial
    api
 
 

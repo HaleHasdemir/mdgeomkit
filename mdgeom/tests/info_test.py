@@ -26,7 +26,7 @@ def u_gmx():
     }
     return mda.Universe(data.TPR, data.XTC), reference
 
-def text_extract_fixture():
+def text_extract_fixture(u_gmx):
     universe, reference = u_gmx
     udata = info.extract(universe)
 
