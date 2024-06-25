@@ -7,6 +7,7 @@ from MDAnalysisTests import datafiles as data
 
 from mdgeom import info
 
+
 ### simple testing
 
 
@@ -217,3 +218,9 @@ def test_extract(topology, trajectory, reference):
 
     for key in reference:
         assert udata[key] == pytest.approx(reference[key])
+
+
+def test_extract_non_univers():
+    universe = " this is not a universe"
+    with pytest.raises(AttributeError):
+        udata = info.extract(universe)
